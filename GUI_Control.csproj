@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="door 2.png" />
+    <None Remove="door 3.png" />
+    <None Remove="door.png" />
+    <None Remove="gif door.gif" />
+    <None Remove="icon test.png" />
+    <None Remove="seat.png" />
+    <None Remove="settings.png" />
+    <None Remove="siglasiteupit.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.IO.Ports" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="door 2.png" />
+    <Resource Include="door 3.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="door.png" />
+    <Resource Include="gif door.gif" />
+    <Resource Include="icon test.png" />
+    <Resource Include="seat.png" />
+    <Resource Include="settings.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SplashScreen Include="siglasiteupit.png" />
+  </ItemGroup>
+
+</Project>

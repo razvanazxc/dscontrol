@@ -1,0 +1,120 @@
+﻿<Window x:Class="Licenta_Concept.SettingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Licenta_Concept"
+        mc:Ignorable="d"
+        Title="SettingWindow" Height="303" Width="500" WindowStartupLocation="CenterScreen" 
+        AllowsTransparency="True" Background="Transparent" WindowStyle="None" Topmost="True">
+    <Window.Resources>
+        <Storyboard x:Key="SettingsSpawnAnim">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(FrameworkElement.Width)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="500">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuarticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="500">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(FrameworkElement.Height)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuarticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="303">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Border x:Name="border" CornerRadius="25" BorderThickness="2" Padding="6" Background="White" Height="303" Width="500">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Column="0" Margin="50,20,50,22">
+                <Grid Margin="5,5,5,0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Comunication Port" FontWeight="Bold" FontSize="14" />
+                    <ComboBox x:Name="comPortSelector" Grid.Column="1"  SelectedIndex="0" >
+                        <ComboBox.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black"/>
+                                <GradientStop Color="#FFA26464" Offset="1"/>
+                            </LinearGradientBrush>
+                        </ComboBox.Foreground>
+                    </ComboBox>
+                </Grid>
+                <Grid Margin="5,5,5,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Baud Rate" FontWeight="Bold" FontSize="14"/>
+                    <TextBox x:Name="baudRatePicked"  Grid.Column="1" Text="115200" TextAlignment="Center"/>
+                </Grid>
+                <Grid Margin="5,5,5,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Parity" FontWeight="Bold" FontSize="14"/>
+                    <ComboBox x:Name="parityPicked" Grid.Column="1" SelectedIndex="0"/>
+                </Grid>
+                <Grid Margin="5,5,5,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Data Bits" FontSize="14" FontWeight="Bold"/>
+                    <TextBox x:Name="dataBitsPicked" Grid.Column="1" Text="8" TextAlignment="Center"/>
+                </Grid>
+                <Grid Margin="5,5,5,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Stop Bits" FontSize="14" FontWeight="Bold"/>
+                    <ComboBox x:Name="stopBitsPicked" Grid.Column="1" SelectedIndex="1"/>
+                </Grid>
+            </StackPanel>
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="2*"/>
+
+                </Grid.ColumnDefinitions>
+                <Button x:Name="settingsSaveBtn" Click="settingsSaveBtn_Click" Grid.Column="0"  Content="Save" Background="#FF565656" FontSize="20" FontWeight="Bold" Margin="30,0,30,10" BorderBrush="White">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="7"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="settingsCloseBtn" Click="settingsCloseBtn_Click" Grid.Column="1" Content="Cancel" Background="{x:Null}" FontSize="20" FontWeight="Bold" Margin="-10,0,70,10" BorderBrush="Black">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="7"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
