@@ -16,6 +16,7 @@ using System.Threading;
 using System.IO;
 using System.Text.Json;
 using System.Windows.Media.Animation;
+using System.ComponentModel;
 
 namespace Licenta_Concept
 {
@@ -32,7 +33,8 @@ namespace Licenta_Concept
     /// </summary>
     public partial class SettingWindow : Window
     {
-        SerialPort _serialPort=new SerialPort("COM4", 115200, Parity.None, 8, StopBits.One);
+        SerialPort _serialPort;
+        private bool closeStoryBoardCompleted = false;
         public SettingWindow()
         {
             //TestSerialComunnication();
@@ -133,9 +135,12 @@ namespace Licenta_Concept
                 Close();
         }
 
-        private void settingsCloseBtn_Click(object sender, RoutedEventArgs e)
+        private async void settingsCloseBtn_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Storyboard settingsDespawnStoryboard = (Storyboard)Resources["SettingsDespawnAnim"];
+            settingsDespawnStoryboard.Begin();
+            await Task.Delay(1000);
+            this.Close();
         }
     }
 }
