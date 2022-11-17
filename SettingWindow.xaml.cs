@@ -37,10 +37,35 @@ namespace Licenta_Concept
         {
             //TestSerialComunnication();
             InitializeComponent();
-            DynamicComPorts();
-            DynamicParity();
-            DynamicStopBits();
+            DynamicDefaultOrSavedSettings();
             AnimateWindowEntry();
+        }
+
+        void DynamicDefaultOrSavedSettings()
+        {
+            //reding settings first to see if a device is on that com port
+            string jsonFile = "settings.json";
+            try
+            {
+                string jsonString = File.ReadAllText(jsonFile);
+                Settings currentSettings = JsonSerializer.Deserialize<Settings>(jsonString);
+                if (TestSerialComunnication(currentSettings.ComPort, currentSettings.BaudRate, currentSettings.Parity, currentSettings.DataBits, currentSettings.StopBits))
+                {
+                    comPortSelector.Items.Add(new TextBox().Text = currentSettings.ComPort);
+                    baudRatePicked.Text = currentSettings.BaudRate.ToString();
+                    parityPicked.Items.Add(new TextBox().Text = Enum.GetName(typeof(Parity), currentSettings.Parity));
+                    dataBitsPicked.Text = currentSettings.DataBits.ToString();
+                    stopBitsPicked.Items.Add(new TextBox().Text = Enum.GetName(typeof(StopBits), currentSettings.StopBits));
+                    stopBitsPicked.SelectedIndex = 0;
+                }
+                else
+                    throw new InvalidOperationException("Com port is not connected anymore"); ;
+            }
+            catch (Exception e) {
+                DynamicComPorts();
+                DynamicParity();
+                DynamicStopBits();
+            }
         }
 
         void AnimateWindowEntry() 
@@ -49,11 +74,19 @@ namespace Licenta_Concept
             settingsSpawnStoryboard.Begin();
         }
 
-        private void TestSerialComunnication()
+        bool TestSerialComunnication(string portName,int baudRate, int parity, int dataBits, int stopBits)
         {
-            _serialPort = new SerialPort("COM4", 115200, Parity.None, 8, StopBits.One);
-            _serialPort.DataReceived += new SerialDataReceivedEventHandler(sp_DataReceived);
-            _serialPort.Open();
+            _serialPort = new SerialPort(portName, baudRate, (Parity)parity, dataBits, (StopBits)stopBits);
+            //_serialPort.DataReceived += new SerialDataReceivedEventHandler(sp_DataReceived);
+            try
+            {
+                _serialPort.Open();
+                _serialPort.Close();
+                return true;
+            }
+            catch (IOException e) {
+                return false;
+            }
         }
         void sp_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
