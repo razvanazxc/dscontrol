@@ -35,6 +35,8 @@ namespace Licenta_Concept
         {
             if(settingWindow!=null)
                 settingWindow.Close();
+            if (settingsButton.Opacity == 0)
+                return;
             settingWindow = new SettingWindow();
             settingWindow.Show();
         }
