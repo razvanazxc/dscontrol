@@ -96,99 +96,142 @@
                 <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="-180"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="WindowUpAnim">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="image1" RepeatBehavior="Forever" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
-    <Grid >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <TabControl x:Name="tabCurentWindow" Background="LightGray" TabStripPlacement="Bottom">
+        <TabItem>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-        <Rectangle x:Name="sideMenu" Grid.Column="0" Width="0" HorizontalAlignment="Left" Grid.RowSpan="3" Fill="Black" />
+                <Rectangle x:Name="sideMenu" Grid.Column="0" Width="0" HorizontalAlignment="Left" Grid.RowSpan="3" Fill="Black" />
 
-        <Grid Grid.Column="0" Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+                <Grid Grid.Column="0" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
 
-            <Button x:Name="sideMenuBtn" Click="sideMenuBtn_Click" Grid.Row="0" Grid.Column="0" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
-                 <StackPanel>
-                    <Rectangle HorizontalAlignment="Center" Height="8" Margin="0,10,0,0" Stroke="#FF565656" Width="49" Fill="#FF565656" RadiusX="3.5" RadiusY="3.5" />
-                    <Rectangle x:Name="rectangle1" HorizontalAlignment="Center" Height="8" Margin="0,10,0,0" Stroke="#FF565656" Width="49" Fill="#FF565656" RadiusX="3.5" RadiusY="3.5" RenderTransformOrigin="0.5,0.5" >
-                        <Rectangle.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Rectangle.RenderTransform>
-                    </Rectangle>
-                    <Rectangle x:Name="rectangle" HorizontalAlignment="Center" Height="8" Margin="0,10,0,0" Stroke="#FF565656" Width="49" Fill="#FF565656" RadiusX="3.5" RadiusY="3.5" RenderTransformOrigin="0.5,0.5" >
-                        <Rectangle.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Rectangle.RenderTransform>
-                    </Rectangle>
-                </StackPanel>
-            </Button>
-        </Grid>
+                    <Button x:Name="sideMenuBtn" Click="sideMenuBtn_Click" Grid.Row="0" Grid.Column="0" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+                        <StackPanel>
+                            <Rectangle HorizontalAlignment="Center" Height="8" Margin="0,10,0,0" Stroke="#FF565656" Width="49" Fill="#FF565656" RadiusX="3.5" RadiusY="3.5" />
+                            <Rectangle x:Name="rectangle1" HorizontalAlignment="Center" Height="8" Margin="0,10,0,0" Stroke="#FF565656" Width="49" Fill="#FF565656" RadiusX="3.5" RadiusY="3.5" RenderTransformOrigin="0.5,0.5" >
+                                <Rectangle.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Rectangle.RenderTransform>
+                            </Rectangle>
+                            <Rectangle x:Name="rectangle" HorizontalAlignment="Center" Height="8" Margin="0,10,0,0" Stroke="#FF565656" Width="49" Fill="#FF565656" RadiusX="3.5" RadiusY="3.5" RenderTransformOrigin="0.5,0.5" >
+                                <Rectangle.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Rectangle.RenderTransform>
+                            </Rectangle>
+                        </StackPanel>
+                    </Button>
+                </Grid>
 
-        <Grid Grid.Column="0" Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Button x:Name="settingsButton" Click="settingsButton_Click" Opacity="0" Grid.Column="0" Grid.Row="1" Background="Transparent" BorderThickness="0"  >
-                <Image Source="/settings.png"/>
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="200"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-        </Grid>
+                <Grid Grid.Column="0" Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="settingsButton" Click="settingsButton_Click" Opacity="0" Grid.Column="0" Grid.Row="1" Background="Transparent" BorderThickness="0"  >
+                        <Image Source="/settings.png"/>
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="200"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </Grid>
 
-        <Button x:Name="buttonDoor" Click="buttonDoor_Click" Grid.Column="1" Grid.Row="1" BorderThickness="0" Background="Transparent">
-            <DynamicResource ResourceKey="door_one" />
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="200"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button Grid.Column="2" Grid.Row="1" Background="Transparent" BorderThickness="0">
-            <Image Source="/seat.png"/>
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="200"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-    </Grid>
+                <Button x:Name="buttonDoor" Click="buttonDoor_Click" Grid.Column="1" Grid.Row="1" BorderThickness="0" Background="Transparent">
+                    <DynamicResource ResourceKey="door_one" />
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="200"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Grid.Column="2" Grid.Row="1" Background="Transparent" BorderThickness="0">
+                    <Image Source="/seat.png"/>
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="200"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+        </TabItem>
+
+
+        <TabItem>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image x:Name="image1" Grid.ColumnSpan="3"  Grid.RowSpan="3" Source="/car_dor_submenu_window.png" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="200"/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                <Image x:Name="image" Source="/car_door_submenu.png" Grid.ColumnSpan="3"  Grid.RowSpan="3"  />
+                <Button x:Name="doorWindowUp" Content="Window Up" PreviewMouseLeftButtonUp="doorWindowUp_MouseLeftButtonUp" PreviewMouseLeftButtonDown="doorWindowUp_Click" Grid.Column="3" Grid.Row="0"/>
+
+            </Grid>
+        </TabItem>
+    </TabControl>
 </Window>

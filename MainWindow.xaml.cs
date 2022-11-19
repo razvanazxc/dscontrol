@@ -45,6 +45,7 @@ namespace Licenta_Concept
         {
             Task rez = doorButtonAnimation();
             await rez;
+            tabCurentWindow.SelectedIndex = 1;
 
         }
 
@@ -76,6 +77,18 @@ namespace Licenta_Concept
 
         void MainWindow_Closing(object sender, CancelEventArgs e) {
             settingWindow.Close();
+        }
+
+        private void doorWindowUp_Click(object sender, RoutedEventArgs e)
+        {
+            Storyboard winUpStoryBoard = (Storyboard)Resources["WindowUpAnim"];
+            winUpStoryBoard.Begin();
+        }
+
+        private void doorWindowUp_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Storyboard winUpStoryBoard = (Storyboard)Resources["WindowUpAnim"];
+            winUpStoryBoard.Stop();
         }
     }
 }

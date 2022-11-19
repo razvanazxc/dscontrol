@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="car_door_submenu.png" />
+    <None Remove="car_dor_submenu_window.png" />
     <None Remove="door 2.png" />
     <None Remove="door 3.png" />
     <None Remove="door.png" />
@@ -23,6 +25,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="car_door_submenu.png" />
+    <Resource Include="car_dor_submenu_window.png" />
     <Resource Include="door 2.png" />
     <Resource Include="door 3.png" />
   </ItemGroup>
