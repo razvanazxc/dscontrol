@@ -76,6 +76,7 @@ namespace Licenta_Concept
         }
 
         void MainWindow_Closing(object sender, CancelEventArgs e) {
+            if(settingWindow != null)
             settingWindow.Close();
         }
 

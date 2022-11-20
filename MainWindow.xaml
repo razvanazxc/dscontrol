@@ -107,9 +107,25 @@
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
-    <TabControl x:Name="tabCurentWindow" Background="LightGray" TabStripPlacement="Bottom">
-        <TabItem>
-            <Grid >
+    <TabControl x:Name="tabCurentWindow" TabStripPlacement="Bottom" Background="LightGray" RenderTransformOrigin="0.5,0.5" BorderBrush="LightGray">
+        <TabControl.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </TabControl.RenderTransform>
+        <TabItem RenderTransformOrigin="0.5,0.5">
+            <TabItem.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="10"/>
+                </TransformGroup>
+            </TabItem.RenderTransform>
+            <Grid Margin="-3,-3,-3,-9" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -206,7 +222,15 @@
         </TabItem>
 
 
-        <TabItem>
+        <TabItem RenderTransformOrigin="0.5,0.5">
+            <TabItem.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="10"/>
+                </TransformGroup>
+            </TabItem.RenderTransform>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
