@@ -94,7 +94,20 @@ namespace Licenta_Concept
 
         private void goHomeBtn_Click(object sender, RoutedEventArgs e)
         {
+
             tabCurentWindow.SelectedIndex = 0;
+        }
+
+        private void doorWindowDown_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Storyboard winDownStoryBoard = (Storyboard)Resources["WindowDownAnim"];
+            winDownStoryBoard.Begin();
+        }
+
+        private void doorWindowDown_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Storyboard winDownStoryBoard = (Storyboard)Resources["WindowDownAnim"];
+            winDownStoryBoard.Stop();
         }
     }
 }

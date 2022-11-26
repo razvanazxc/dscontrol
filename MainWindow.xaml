@@ -107,6 +107,16 @@
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="WindowDownAnim" >
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="image1" RepeatBehavior="Forever" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="200">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
     <TabControl x:Name="tabCurentWindow" TabStripPlacement="Bottom" Background="LightGray" RenderTransformOrigin="0.5,0.5" BorderBrush="LightGray">
         <TabControl.RenderTransform>
@@ -263,7 +273,7 @@
                 </Image>
                 <Image x:Name="image" Source="/car_door_submenu.png" Grid.ColumnSpan="3"  Grid.RowSpan="3"  />
                 <Button x:Name="doorWindowUp" Content="Window Up" PreviewMouseLeftButtonUp="doorWindowUp_MouseLeftButtonUp" PreviewMouseLeftButtonDown="doorWindowUp_Click" Grid.Column="3" Grid.Row="0"/>
-
+                <Button x:Name="doorWindowDown" Content="Window Down" PreviewMouseLeftButtonDown="doorWindowDown_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="doorWindowDown_PreviewMouseLeftButtonUp" Grid.Column="2" Grid.Row="2"/>
             </Grid>
         </TabItem>
     </TabControl>
