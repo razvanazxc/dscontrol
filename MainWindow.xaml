@@ -12,6 +12,7 @@
         <Image x:Key="door_one" Source="/door.png" />
         <Image x:Key="door_two" Source="/door 2.png" />
         <Image x:Key="door_three" Source="/door 3.png"/>
+        <Image x:Key="homeIcon" Source="/home_Icon.png"/>
         <Storyboard x:Key="SideMenuInAnimation">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="sideMenu" Storyboard.TargetProperty="(FrameworkElement.Width)">
                 <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0">
@@ -202,7 +203,7 @@
                     </Button>
                 </Grid>
 
-                <Button x:Name="buttonDoor" Click="buttonDoor_Click" Grid.Column="1" Grid.Row="1" BorderThickness="0" Background="Transparent">
+                <Button x:Name="buttonDoor" Click="buttonDoor_Click" Grid.Column="1" Grid.Row="1" BorderThickness="0" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <DynamicResource ResourceKey="door_one" />
                     <Button.Resources>
                         <Style TargetType="Border">
@@ -210,7 +211,7 @@
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Grid.Column="2" Grid.Row="1" Background="Transparent" BorderThickness="0">
+                <Button Grid.Column="2" Grid.Row="1" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Image Source="/seat.png"/>
                     <Button.Resources>
                         <Style TargetType="Border">
@@ -242,6 +243,14 @@
                     <RowDefinition Height="5*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+                <Button x:Name="goHomeBtn" Grid.Column="0" Grid.Row="0" Click="goHomeBtn_Click" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <DynamicResource ResourceKey="homeIcon" />
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="200"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
                 <Image x:Name="image1" Grid.ColumnSpan="3"  Grid.RowSpan="3" Source="/car_dor_submenu_window.png" RenderTransformOrigin="0.5,0.5">
                     <Image.RenderTransform>
                         <TransformGroup>

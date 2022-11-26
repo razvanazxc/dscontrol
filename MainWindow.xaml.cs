@@ -91,5 +91,10 @@ namespace Licenta_Concept
             Storyboard winUpStoryBoard = (Storyboard)Resources["WindowUpAnim"];
             winUpStoryBoard.Stop();
         }
+
+        private void goHomeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            tabCurentWindow.SelectedIndex = 0;
+        }
     }
 }

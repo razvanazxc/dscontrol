@@ -14,6 +14,7 @@
     <None Remove="door 3.png" />
     <None Remove="door.png" />
     <None Remove="gif door.gif" />
+    <None Remove="home_Icon.png" />
     <None Remove="icon test.png" />
     <None Remove="seat.png" />
     <None Remove="settings.png" />
@@ -34,6 +35,7 @@
   <ItemGroup>
     <Resource Include="door.png" />
     <Resource Include="gif door.gif" />
+    <Resource Include="home_Icon.png" />
     <Resource Include="icon test.png" />
     <Resource Include="seat.png" />
     <Resource Include="settings.png" />
