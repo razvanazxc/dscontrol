@@ -82,12 +82,14 @@ namespace Licenta_Concept
 
         private void doorWindowUp_Click(object sender, RoutedEventArgs e)
         {
+            winButtonsImg.Source = GetBitmapImage("/UpWinBtn.png");
             Storyboard winUpStoryBoard = (Storyboard)Resources["WindowUpAnim"];
             winUpStoryBoard.Begin();
         }
 
         private void doorWindowUp_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            winButtonsImg.Source = GetBitmapImage("/IdleWinBtn.png");
             Storyboard winUpStoryBoard = (Storyboard)Resources["WindowUpAnim"];
             winUpStoryBoard.Stop();
         }
@@ -98,14 +100,24 @@ namespace Licenta_Concept
             tabCurentWindow.SelectedIndex = 0;
         }
 
+        BitmapImage GetBitmapImage(string relativePath) {
+            BitmapImage bi = new BitmapImage();
+            bi.BeginInit();
+            bi.UriSource = new Uri(relativePath, UriKind.Relative);
+            bi.EndInit();
+            return bi;
+        }
+
         private void doorWindowDown_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            winButtonsImg.Source = GetBitmapImage("/DownWinBtn.png");
             Storyboard winDownStoryBoard = (Storyboard)Resources["WindowDownAnim"];
             winDownStoryBoard.Begin();
         }
 
         private void doorWindowDown_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            winButtonsImg.Source = GetBitmapImage("/IdleWinBtn.png");
             Storyboard winDownStoryBoard = (Storyboard)Resources["WindowDownAnim"];
             winDownStoryBoard.Stop();
         }

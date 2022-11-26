@@ -13,12 +13,15 @@
     <None Remove="door 2.png" />
     <None Remove="door 3.png" />
     <None Remove="door.png" />
+    <None Remove="DownWinBtn.png" />
     <None Remove="gif door.gif" />
     <None Remove="home_Icon.png" />
     <None Remove="icon test.png" />
+    <None Remove="IdleWinBtn.png" />
     <None Remove="seat.png" />
     <None Remove="settings.png" />
     <None Remove="siglasiteupit.png" />
+    <None Remove="UpWinBtn.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,11 +37,14 @@
 
   <ItemGroup>
     <Resource Include="door.png" />
+    <Resource Include="DownWinBtn.png" />
     <Resource Include="gif door.gif" />
     <Resource Include="home_Icon.png" />
     <Resource Include="icon test.png" />
+    <Resource Include="IdleWinBtn.png" />
     <Resource Include="seat.png" />
     <Resource Include="settings.png" />
+    <Resource Include="UpWinBtn.png" />
   </ItemGroup>
 
   <ItemGroup>
