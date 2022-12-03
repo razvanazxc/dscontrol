@@ -224,6 +224,42 @@
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="SeatBackreastForwardAnim" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="seatHeadrestImg" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-10">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseIn" Exponent="4"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="seatBackRestImg" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-10">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <SineEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="SeatBackreastBackwardAnim" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="seatHeadrestImg" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="10">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseIn" Exponent="4"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="seatBackRestImg" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="10">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <SineEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
     <TabControl x:Name="tabCurentWindow" TabStripPlacement="Bottom" Background="LightGray" RenderTransformOrigin="0.5,0.5" BorderBrush="LightGray">
         <TabControl.RenderTransform>
@@ -439,22 +475,22 @@
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Image x:Name="seatHeadrestImg" Source="/seatHeadrest.png" Grid.Column="2" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+                <Image x:Name="seatHeadrestImg" Source="/seatHeadrest.png" Grid.Column="2" Grid.Row="1" RenderTransformOrigin="0.791,0.816">
                     <Image.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
                             <SkewTransform/>
-                            <RotateTransform/>
+                            <RotateTransform Angle="0"/>
                             <TranslateTransform/>
                         </TransformGroup>
                     </Image.RenderTransform>
                 </Image>
-                <Image x:Name="seatBackRestImg" Source="/seatBackRest.png" Grid.Column="2" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+                <Image x:Name="seatBackRestImg" Source="/seatBackRest.png" Grid.Column="2" Grid.Row="1" RenderTransformOrigin="0.791,0.816">
                     <Image.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
                             <SkewTransform/>
-                            <RotateTransform/>
+                            <RotateTransform Angle="0"/>
                             <TranslateTransform/>
                         </TransformGroup>
                     </Image.RenderTransform>
@@ -489,6 +525,8 @@
                     <Button x:Name="positionBackwardBtn"  PreviewMouseLeftButtonDown="positionBackwardBtn_PreviewMouseLeftButtonDown"  PreviewMouseLeftButtonUp="positionBackwardBtn_PreviewMouseLeftButtonUp"  Content="Seat Backward" Grid.Column="2" Grid.Row="0"/>
                     <Button x:Name="seatUpBtn" PreviewMouseLeftButtonDown="seatUpBtn_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="seatUpBtn_PreviewMouseLeftButtonUp" Content="Seat Height Up" Grid.Column="3" Grid.Row="0"/>
                     <Button x:Name="seatDownBtn" PreviewMouseLeftButtonDown="seatDownBtn_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="seatDownBtn_PreviewMouseLeftButtonUp"  Content="Seat Height Down" Grid.Column="4" Grid.Row="0"/>
+                    <Button x:Name="seatBackRestForwardBtn" PreviewMouseLeftButtonDown="seatBackRestForwardBtn_PreviewMouseLeftButtonDown"  PreviewMouseLeftButtonUp="seatBackRestForwardBtn_PreviewMouseLeftButtonUp"  Content="BckResr Forward" Grid.Column="1" Grid.Row="1"/>
+                    <Button x:Name="seatBackRestBackBtn" PreviewMouseLeftButtonDown="seatBackRestBackBtn_PreviewMouseLeftButtonDown"  PreviewMouseLeftButtonUp="seatBackRestBackBtn_PreviewMouseLeftButtonUp"  Content="BckResr Back" Grid.Column="2" Grid.Row="1"/>
                 </Grid>
             </Grid>
         </TabItem>
