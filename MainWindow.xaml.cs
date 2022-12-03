@@ -213,5 +213,30 @@ namespace Licenta_Concept
             Storyboard backRestBackStoryboard = (Storyboard)Resources["SeatBackreastBackwardAnim"];
             backRestBackStoryboard.Stop();
         }
+
+        private void seatHeadRestUp_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Storyboard headRestUpStoryboard = (Storyboard)Resources["SeatHeadRestUpAnim"];
+            headRestUpStoryboard.Begin();
+        }
+
+        private void seatHeadRestUp_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Storyboard headRestUpStoryboard = (Storyboard)Resources["SeatHeadRestUpAnim"];
+            headRestUpStoryboard.Stop();
+        }
+
+        private void seatHeadRestDown_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Storyboard headRestDownStoryboard = (Storyboard)Resources["SeatHeadRestDownAnim"];
+            headRestDownStoryboard.Begin();
+
+        }
+
+        private void seatHeadRestDown_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Storyboard headRestDownStoryboard = (Storyboard)Resources["SeatHeadRestDownAnim"];
+            headRestDownStoryboard.Stop();
+        }
     }
 }
