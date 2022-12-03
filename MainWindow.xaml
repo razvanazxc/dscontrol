@@ -120,6 +120,58 @@
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="SeatPositionForwardAnim"  RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="seatHeadrestImg" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-35">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseIn" Exponent="5"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="seatBackRestImg" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-35">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseIn" Exponent="3"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="seatButtRestImg" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-35">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <SineEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="SeatPositionBackwardAnim" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="seatHeadrestImg" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-35"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseIn" Exponent="5"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="seatBackRestImg" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-35"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseIn" Exponent="3"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="seatButtRestImg" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-35"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <SineEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
     <TabControl x:Name="tabCurentWindow" TabStripPlacement="Bottom" Background="LightGray" RenderTransformOrigin="0.5,0.5" BorderBrush="LightGray">
         <TabControl.RenderTransform>
@@ -335,9 +387,36 @@
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Image Source="/seatHeadrest.png" Grid.Column="2" Grid.Row="1"/>
-                <Image Source="/seatBackRest.png" Grid.Column="2" Grid.Row="1"/>
-                <Image Source="/seatButtRest.png" Grid.Column="2" Grid.Row="1"/>
+                <Image x:Name="seatHeadrestImg" Source="/seatHeadrest.png" Grid.Column="2" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                <Image x:Name="seatBackRestImg" Source="/seatBackRest.png" Grid.Column="2" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                <Image x:Name="seatButtRestImg" Source="/seatButtRest.png" Grid.Column="2" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
                 <Grid Grid.Row="1" Grid.Column="3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -354,6 +433,8 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
+                    <Button x:Name="positionForwardBtn"  PreviewMouseLeftButtonDown="positionForwardBtn_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="positionForwardBtn_PreviewMouseLeftButtonUp" Content="Seat Forward" Grid.Column="1" Grid.Row="0"/>
+                    <Button x:Name="positionBackwardBtn"  PreviewMouseLeftButtonDown="positionBackwardBtn_PreviewMouseLeftButtonDown"  PreviewMouseLeftButtonUp="positionBackwardBtn_PreviewMouseLeftButtonUp"  Content="Seat Backward" Grid.Column="2" Grid.Row="0"/>
                 </Grid>
             </Grid>
         </TabItem>

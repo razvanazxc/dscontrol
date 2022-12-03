@@ -140,5 +140,29 @@ namespace Licenta_Concept
             buttonSeat.Content = FindResource("seat_one");
             await Task.Delay(125);
         }
+
+        private void positionForwardBtn_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Storyboard seatForwardStoryBoard = (Storyboard)Resources["SeatPositionForwardAnim"];
+            seatForwardStoryBoard.Begin();
+        }
+
+        private void positionForwardBtn_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Storyboard seatForwardStoryBoard = (Storyboard)Resources["SeatPositionForwardAnim"];
+            seatForwardStoryBoard.Stop();
+        }
+
+        private void positionBackwardBtn_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Storyboard seatBackwardStoryBoard = (Storyboard)Resources["SeatPositionBackwardAnim"];
+            seatBackwardStoryBoard.Begin();
+        }
+
+        private void positionBackwardBtn_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Storyboard seatBackwardStoryBoard = (Storyboard)Resources["SeatPositionBackwardAnim"];
+            seatBackwardStoryBoard.Stop();
+        }
     }
 }
