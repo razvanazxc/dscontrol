@@ -314,6 +314,48 @@
                     <TranslateTransform Y="10"/>
                 </TransformGroup>
             </TabItem.RenderTransform>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+                <Button x:Name="homeBtn" Grid.Column="0" Grid.Row="0" Click="goHomeBtn_Click" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="/home_Icon.png" />
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="200"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Image Source="/seatHeadrest.png" Grid.Column="2" Grid.Row="1"/>
+                <Image Source="/seatBackRest.png" Grid.Column="2" Grid.Row="1"/>
+                <Image Source="/seatButtRest.png" Grid.Column="2" Grid.Row="1"/>
+                <Grid Grid.Row="1" Grid.Column="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                </Grid>
+            </Grid>
         </TabItem>
     </TabControl>
 </Window>

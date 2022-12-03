@@ -97,7 +97,6 @@ namespace Licenta_Concept
 
         private void goHomeBtn_Click(object sender, RoutedEventArgs e)
         {
-
             tabCurentWindow.SelectedIndex = 0;
         }
 
