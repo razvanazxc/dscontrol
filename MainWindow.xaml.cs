@@ -57,6 +57,7 @@ namespace Licenta_Concept
             buttonDoor.Content = FindResource("door_three");
             await Task.Delay(125);
             buttonDoor.Content = FindResource("door_one");
+            await Task.Delay(125);
         }
 
         private void sideMenuBtn_Click(object sender, RoutedEventArgs e)
@@ -120,6 +121,25 @@ namespace Licenta_Concept
             winButtonsImg.Source = GetBitmapImage("/IdleWinBtn.png");
             Storyboard winDownStoryBoard = (Storyboard)Resources["WindowDownAnim"];
             winDownStoryBoard.Stop();
+        }
+
+        private async void buttonSeat_Click(object sender, RoutedEventArgs e)
+        {
+            Task rezSeatAnim = seatButtonAnimation();
+            await rezSeatAnim;
+            tabCurentWindow.SelectedIndex = 2;
+
+        }
+
+        private async Task seatButtonAnimation()
+        {
+            await Task.Delay(125);
+            buttonSeat.Content = FindResource("seat_one");
+            await Task.Delay(125);//miliseconds
+            buttonSeat.Content = FindResource("seat_two");
+            await Task.Delay(125);
+            buttonSeat.Content = FindResource("seat_one");
+            await Task.Delay(125);
         }
     }
 }
