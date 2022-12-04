@@ -1,0 +1,11 @@
+﻿<#@ template language="C#" #>
+
+using System.Reflection;
+
+[assembly: AssemblyVersion("1.0.<#= this.build #>.<#= this.revison #>")]
+[assembly: AssemblyFileVersion("1.0.<#= this.build #>.<#= this.revison #>")]
+[assembly: AssemblyInformationalVersion("1.0.<#= this.build #>.<#= this.revison #>")]
+<#+
+    int build = (int)(DateTime.UtcNow - new DateTime(2022,11,12)).TotalDays;
+    int revison = Convert.ToInt32(DateTime.Now.ToString("HHmm"));
+#>

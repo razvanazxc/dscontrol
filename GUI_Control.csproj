@@ -6,7 +6,12 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <Platforms>AnyCPU;x86</Platforms>
-  </PropertyGroup>
+	<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+	  <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+	  <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+	  <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+  
+</PropertyGroup>
 
   <ItemGroup>
     <None Remove="car_door_submenu.png" />
@@ -59,6 +64,25 @@
 
   <ItemGroup>
     <SplashScreen Include="siglasiteupit.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="version.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>version.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="version.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>version.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
 </Project>
