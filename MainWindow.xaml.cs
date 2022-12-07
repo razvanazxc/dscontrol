@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
 using System.ComponentModel;
+using NLog;
+using System.IO;
 
 namespace Licenta_Concept
 {
@@ -23,12 +25,14 @@ namespace Licenta_Concept
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         int flagSideMenu = 0;
         SettingWindow settingWindow;
         public MainWindow()
         {
             InitializeComponent();
             Closing += MainWindow_Closing;
+            logger.Info("Program started successfully");
         }
 
         private void settingsButton_Click(object sender, RoutedEventArgs e)

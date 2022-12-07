@@ -14,6 +14,7 @@
 </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="C:\Users\svenh\.nuget\packages\nlog.config\4.7.15\contentFiles\any\any\NLog.config" />
     <None Remove="car_door_submenu.png" />
     <None Remove="car_dor_submenu_window.png" />
     <None Remove="door 2.png" />
@@ -36,10 +37,14 @@
 
   <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
+    <PackageReference Include="NLog.Config" Version="4.7.15" />
     <PackageReference Include="System.IO.Ports" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="C:\Users\svenh\.nuget\packages\nlog.config\4.7.15\contentFiles\any\any\NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="car_door_submenu.png" />
     <Resource Include="car_dor_submenu_window.png" />
     <Resource Include="door 2.png" />
