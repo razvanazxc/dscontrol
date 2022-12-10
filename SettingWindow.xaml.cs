@@ -61,7 +61,7 @@ namespace Licenta_Concept
                     stopBitsPicked.SelectedIndex = 0;
                 }
                 else
-                    throw new InvalidOperationException("Com port is not connected anymore"); ;
+                    throw new InvalidOperationException("Com port is not connected anymore");
             }
             catch (Exception e) {
                 DynamicComPorts();

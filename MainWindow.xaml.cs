@@ -17,6 +17,8 @@ using System.Threading;
 using System.ComponentModel;
 using NLog;
 using System.IO;
+using GUI_Control;
+using System.Text.Json;
 
 namespace Licenta_Concept
 {
@@ -32,7 +34,15 @@ namespace Licenta_Concept
         {
             InitializeComponent();
             Closing += MainWindow_Closing;
+            InitializeStatusBar();
             logger.Info("Program started successfully");
+        }
+
+        private void InitializeStatusBar()
+        {
+            UsbConnectionStatus usbStat = new UsbConnectionStatus(infoStatusBar, this.Dispatcher);
+            usbStat.serialPortListener();
+            usbStat.InitialDeviceCheck();
         }
 
         private void settingsButton_Click(object sender, RoutedEventArgs e)

@@ -294,40 +294,33 @@
             </Storyboard>
         </ResourceDictionary>
     </Window.Resources>
-    <TabControl x:Name="tabCurentWindow" TabStripPlacement="Bottom" Background="LightGray" RenderTransformOrigin="0.5,0.5" BorderBrush="LightGray">
-        <TabControl.RenderTransform>
-            <TransformGroup>
-                <ScaleTransform/>
-                <SkewTransform/>
-                <RotateTransform/>
-                <TranslateTransform/>
-            </TransformGroup>
-        </TabControl.RenderTransform>
-        <TabItem RenderTransformOrigin="0.5,0.5">
-            <TabItem.RenderTransform>
+    <DockPanel>
+        <StackPanel  DockPanel.Dock="Bottom">
+            <StatusBar>
+                <StatusBarItem>
+                     <TextBlock x:Name="infoStatusBar" Text="..."></TextBlock>
+                 </StatusBarItem>
+            </StatusBar>
+        </StackPanel>
+        <TabControl x:Name="tabCurentWindow" TabStripPlacement="Bottom" Background="LightGray" RenderTransformOrigin="0.5,0.5" BorderBrush="LightGray">
+            <TabControl.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
                     <RotateTransform/>
-                    <TranslateTransform Y="10"/>
+                    <TranslateTransform/>
                 </TransformGroup>
-            </TabItem.RenderTransform>
-            <Grid Margin="-3,-3,-3,-9" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
-                <Rectangle x:Name="sideMenu" Grid.Column="0" Width="0" HorizontalAlignment="Left" Grid.RowSpan="3" Fill="Black" />
-
-                <Grid Grid.Column="0" Grid.Row="0">
+            </TabControl.RenderTransform>
+            <TabItem RenderTransformOrigin="0.5,0.5">
+                <TabItem.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="10"/>
+                    </TransformGroup>
+                </TabItem.RenderTransform>
+                <Grid Margin="-3,-3,-3,-9" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -340,47 +333,80 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <Button x:Name="sideMenuBtn" Click="sideMenuBtn_Click" Grid.Row="0" Grid.Column="0" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
-                        <StackPanel>
-                            <Rectangle HorizontalAlignment="Center" Height="8" Margin="0,10,0,0" Stroke="#FF565656" Width="49" Fill="#FF565656" RadiusX="3.5" RadiusY="3.5" />
-                            <Rectangle x:Name="rectangle1" HorizontalAlignment="Center" Height="8" Margin="0,10,0,0" Stroke="#FF565656" Width="49" Fill="#FF565656" RadiusX="3.5" RadiusY="3.5" RenderTransformOrigin="0.5,0.5" >
-                                <Rectangle.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform/>
-                                        <SkewTransform/>
-                                        <RotateTransform/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </Rectangle.RenderTransform>
-                            </Rectangle>
-                            <Rectangle x:Name="rectangle" HorizontalAlignment="Center" Height="8" Margin="0,10,0,0" Stroke="#FF565656" Width="49" Fill="#FF565656" RadiusX="3.5" RadiusY="3.5" RenderTransformOrigin="0.5,0.5" >
-                                <Rectangle.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform/>
-                                        <SkewTransform/>
-                                        <RotateTransform/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </Rectangle.RenderTransform>
-                            </Rectangle>
-                        </StackPanel>
+                    <Rectangle x:Name="sideMenu" Grid.Column="0" Width="0" HorizontalAlignment="Left" Grid.RowSpan="3" Fill="Black" />
+
+                    <Grid Grid.Column="0" Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Button x:Name="sideMenuBtn" Click="sideMenuBtn_Click" Grid.Row="0" Grid.Column="0" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+                            <StackPanel>
+                                <Rectangle HorizontalAlignment="Center" Height="8" Margin="0,10,0,0" Stroke="#FF565656" Width="49" Fill="#FF565656" RadiusX="3.5" RadiusY="3.5" />
+                                <Rectangle x:Name="rectangle1" HorizontalAlignment="Center" Height="8" Margin="0,10,0,0" Stroke="#FF565656" Width="49" Fill="#FF565656" RadiusX="3.5" RadiusY="3.5" RenderTransformOrigin="0.5,0.5" >
+                                    <Rectangle.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Rectangle.RenderTransform>
+                                </Rectangle>
+                                <Rectangle x:Name="rectangle" HorizontalAlignment="Center" Height="8" Margin="0,10,0,0" Stroke="#FF565656" Width="49" Fill="#FF565656" RadiusX="3.5" RadiusY="3.5" RenderTransformOrigin="0.5,0.5" >
+                                    <Rectangle.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Rectangle.RenderTransform>
+                                </Rectangle>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+
+                    <Grid Grid.Column="0" Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="settingsButton" Click="settingsButton_Click" Opacity="0" Grid.Column="0" Grid.Row="1" Background="Transparent" BorderThickness="0"  >
+                            <Image Source="/settings.png"/>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="200"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </Grid>
+
+                    <Button x:Name="buttonDoor" Click="buttonDoor_Click" Grid.Column="1" Grid.Row="1" BorderThickness="0" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <DynamicResource ResourceKey="door_one" />
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="200"/>
+                            </Style>
+                        </Button.Resources>
                     </Button>
-                </Grid>
-
-                <Grid Grid.Column="0" Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Button x:Name="settingsButton" Click="settingsButton_Click" Opacity="0" Grid.Column="0" Grid.Row="1" Background="Transparent" BorderThickness="0"  >
-                        <Image Source="/settings.png"/>
+                    <Button x:Name="buttonSeat" Click="buttonSeat_Click" Grid.Column="2" Grid.Row="1" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <DynamicResource ResourceKey="seat_one" />
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="200"/>
@@ -388,262 +414,245 @@
                         </Button.Resources>
                     </Button>
                 </Grid>
-
-                <Button x:Name="buttonDoor" Click="buttonDoor_Click" Grid.Column="1" Grid.Row="1" BorderThickness="0" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <DynamicResource ResourceKey="door_one" />
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="200"/>
-                        </Style>
-                    </Button.Resources>
-                </Button>
-                <Button x:Name="buttonSeat" Click="buttonSeat_Click" Grid.Column="2" Grid.Row="1" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <DynamicResource ResourceKey="seat_one" />
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="200"/>
-                        </Style>
-                    </Button.Resources>
-                </Button>
-            </Grid>
-        </TabItem>
+            </TabItem>
 
 
-        <TabItem RenderTransformOrigin="0.5,0.5">
-            <TabItem.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="10"/>
-                </TransformGroup>
-            </TabItem.RenderTransform>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="5*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
-                <Button x:Name="goHomeBtn" Grid.Column="0" Grid.Row="0" Click="goHomeBtn_Click" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <DynamicResource ResourceKey="homeIcon" />
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="200"/>
-                        </Style>
-                    </Button.Resources>
-                </Button>
-                <Image x:Name="image1" Grid.ColumnSpan="3"  Grid.RowSpan="3" Source="/car_dor_submenu_window.png" RenderTransformOrigin="0.5,0.5">
-                    <Image.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform Y="200"/>
-                        </TransformGroup>
-                    </Image.RenderTransform>
-                </Image>
-                <Image x:Name="image" Source="/car_door_submenu.png" Grid.ColumnSpan="3"  Grid.RowSpan="3"/>
-                <Grid Grid.Row="1" Grid.Column="2">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Image x:Name="winButtonsImg" Source="/IdleWinBtn.png" Grid.RowSpan="2" />
-                    <Button x:Name="doorWindowUp" PreviewMouseLeftButtonUp="doorWindowUp_MouseLeftButtonUp" PreviewMouseLeftButtonDown="doorWindowUp_Click" BorderBrush="Transparent" Background="Transparent" Margin="40,25,39,99" Grid.RowSpan="2">
-                        <Button.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                    <Button x:Name="doorWindowDown" PreviewMouseLeftButtonDown="doorWindowDown_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="doorWindowDown_PreviewMouseLeftButtonUp" BorderBrush="Transparent" Background="Transparent" Grid.Row="1" Margin="40,0,39,25">
-                        <Button.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                </Grid>
-            </Grid>
-        </TabItem>
-
-
-        <TabItem RenderTransformOrigin="0.5,0.5">
-            <TabItem.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="10"/>
-                </TransformGroup>
-            </TabItem.RenderTransform>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="4*"/>
-                    <ColumnDefinition Width="4*"/>
-                    <ColumnDefinition Width="0.5*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="5*"/>
-                    <RowDefinition Height="0.5*"/>
-                </Grid.RowDefinitions>
-                <Button x:Name="homeBtn" Grid.Column="0" Grid.Row="0" Click="goHomeBtn_Click" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Image Source="/home_Icon.png" />
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="200"/>
-                        </Style>
-                    </Button.Resources>
-                </Button>
-                <Image x:Name="seatHeadrestImg" Source="/seatHeadrest.png" Grid.Column="2" Grid.Row="1" RenderTransformOrigin="0.791,0.816">
-                    <Image.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform Angle="0"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Image.RenderTransform>
-                </Image>
-                <Image x:Name="seatBackRestImg" Source="/seatBackRest.png" Grid.Column="2" Grid.Row="1" RenderTransformOrigin="0.791,0.816">
-                    <Image.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform Angle="0"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Image.RenderTransform>
-                </Image>
-                <Image x:Name="seatButtRestImg" Source="/seatButtRest.png" Grid.Column="2" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
-                    <Image.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Image.RenderTransform>
-                </Image>
-                <Grid Grid.Row="1" Grid.Column="3">
+            <TabItem RenderTransformOrigin="0.5,0.5">
+                <TabItem.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="10"/>
+                    </TransformGroup>
+                </TabItem.RenderTransform>
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="5*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="Seat Forward" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="11"/>
-                    <Button x:Name="positionForwardBtn"  PreviewMouseLeftButtonDown="positionForwardBtn_PreviewMouseLeftButtonDown"
+
+                    <Button x:Name="goHomeBtn" Grid.Column="0" Grid.Row="0" Click="goHomeBtn_Click" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <DynamicResource ResourceKey="homeIcon" />
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="200"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Image x:Name="image1" Grid.ColumnSpan="3"  Grid.RowSpan="3" Source="/car_dor_submenu_window.png" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform Y="200"/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Image x:Name="image" Source="/car_door_submenu.png" Grid.ColumnSpan="3"  Grid.RowSpan="3"/>
+                    <Grid Grid.Row="1" Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Image x:Name="winButtonsImg" Source="/IdleWinBtn.png" Grid.RowSpan="2" />
+                        <Button x:Name="doorWindowUp" PreviewMouseLeftButtonUp="doorWindowUp_MouseLeftButtonUp" PreviewMouseLeftButtonDown="doorWindowUp_Click" BorderBrush="Transparent" Background="Transparent" Margin="40,25,39,99" Grid.RowSpan="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button x:Name="doorWindowDown" PreviewMouseLeftButtonDown="doorWindowDown_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="doorWindowDown_PreviewMouseLeftButtonUp" BorderBrush="Transparent" Background="Transparent" Grid.Row="1" Margin="40,0,39,25">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </Grid>
+                </Grid>
+            </TabItem>
+
+
+            <TabItem RenderTransformOrigin="0.5,0.5">
+                <TabItem.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="10"/>
+                    </TransformGroup>
+                </TabItem.RenderTransform>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="0.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="0.5*"/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="homeBtn" Grid.Column="0" Grid.Row="0" Click="goHomeBtn_Click" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Image Source="/home_Icon.png" />
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="200"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Image x:Name="seatHeadrestImg" Source="/seatHeadrest.png" Grid.Column="2" Grid.Row="1" RenderTransformOrigin="0.791,0.816">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="0"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Image x:Name="seatBackRestImg" Source="/seatBackRest.png" Grid.Column="2" Grid.Row="1" RenderTransformOrigin="0.791,0.816">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="0"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Image x:Name="seatButtRestImg" Source="/seatButtRest.png" Grid.Column="2" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Grid Grid.Row="1" Grid.Column="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Seat Forward" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="11"/>
+                        <Button x:Name="positionForwardBtn"  PreviewMouseLeftButtonDown="positionForwardBtn_PreviewMouseLeftButtonDown"
                             PreviewMouseLeftButtonUp="positionForwardBtn_PreviewMouseLeftButtonUp"  Grid.Column="1" Grid.Row="0"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                             Style="{StaticResource MaterialDesignRaisedDarkButton}"
                              materialDesign1:ButtonAssist.CornerRadius="25 0 25 0"
                              ToolTip="MaterialDesignRaisedDarkButton with Round Corners" BorderBrush="Black" Foreground="White" Background="#FF4C4C4C">
-                        <materialDesign1:PackIcon Kind="ArrowLeftBold" Foreground="White" />
-                    </Button>
-                    <TextBlock Text="Seat Backward" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="11"/>
-                    <Button x:Name="positionBackwardBtn"  PreviewMouseLeftButtonDown="positionBackwardBtn_PreviewMouseLeftButtonDown"
+                            <materialDesign1:PackIcon Kind="ArrowLeftBold" Foreground="White" />
+                        </Button>
+                        <TextBlock Text="Seat Backward" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="11"/>
+                        <Button x:Name="positionBackwardBtn"  PreviewMouseLeftButtonDown="positionBackwardBtn_PreviewMouseLeftButtonDown"
                             PreviewMouseLeftButtonUp="positionBackwardBtn_PreviewMouseLeftButtonUp"  Grid.Column="2" Grid.Row="0"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                             Style="{StaticResource MaterialDesignRaisedDarkButton}"
                              materialDesign1:ButtonAssist.CornerRadius="25 0 25 0"
                              ToolTip="MaterialDesignRaisedDarkButton with Round Corners" BorderBrush="Black" Foreground="White" Background="#FF4C4C4C">
-                        <materialDesign1:PackIcon Kind="ArrowRightBold" Foreground="White" />
-                    </Button>
-                    <TextBlock Text="Seat Height Up" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="11"/>
-                    <Button x:Name="seatUpBtn" PreviewMouseLeftButtonDown="seatUpBtn_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="seatUpBtn_PreviewMouseLeftButtonUp"
+                            <materialDesign1:PackIcon Kind="ArrowRightBold" Foreground="White" />
+                        </Button>
+                        <TextBlock Text="Seat Height Up" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="11"/>
+                        <Button x:Name="seatUpBtn" PreviewMouseLeftButtonDown="seatUpBtn_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="seatUpBtn_PreviewMouseLeftButtonUp"
                             Grid.Column="3" Grid.Row="0"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                             Style="{StaticResource MaterialDesignRaisedDarkButton}"
                             materialDesign1:ButtonAssist.CornerRadius="25 0 25 0"
                             ToolTip="MaterialDesignRaisedDarkButton with Round Corners" BorderBrush="Black" Foreground="White" Background="#FF4C4C4C">
-                        <materialDesign1:PackIcon Kind="ArrowUpBold" Foreground="White" />
-                    </Button>
-                    <TextBlock Text="Seat Height Down" Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="11"/>
-                    <Button x:Name="seatDownBtn" PreviewMouseLeftButtonDown="seatDownBtn_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="seatDownBtn_PreviewMouseLeftButtonUp"
+                            <materialDesign1:PackIcon Kind="ArrowUpBold" Foreground="White" />
+                        </Button>
+                        <TextBlock Text="Seat Height Down" Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="11"/>
+                        <Button x:Name="seatDownBtn" PreviewMouseLeftButtonDown="seatDownBtn_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="seatDownBtn_PreviewMouseLeftButtonUp"
                            Grid.Column="4" Grid.Row="0"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                             Style="{StaticResource MaterialDesignRaisedDarkButton}"
                             materialDesign1:ButtonAssist.CornerRadius="25 0 25 0"
                             ToolTip="MaterialDesignRaisedDarkButton with Round Corners" BorderBrush="Black" Foreground="White" Background="#FF4C4C4C">
-                        <materialDesign1:PackIcon Kind="ArrowDownBold" Foreground="White" />
-                    </Button>
-                    <TextBlock Text="Back Rest Forward" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="11"/>
-                    <Button x:Name="seatBackRestForwardBtn" PreviewMouseLeftButtonDown="seatBackRestForwardBtn_PreviewMouseLeftButtonDown"
+                            <materialDesign1:PackIcon Kind="ArrowDownBold" Foreground="White" />
+                        </Button>
+                        <TextBlock Text="Back Rest Forward" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="11"/>
+                        <Button x:Name="seatBackRestForwardBtn" PreviewMouseLeftButtonDown="seatBackRestForwardBtn_PreviewMouseLeftButtonDown"
                             PreviewMouseLeftButtonUp="seatBackRestForwardBtn_PreviewMouseLeftButtonUp"
                             Grid.Column="1" Grid.Row="1"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                             Style="{StaticResource MaterialDesignRaisedDarkButton}"
                             materialDesign1:ButtonAssist.CornerRadius="25 0 25 0"
                             ToolTip="MaterialDesignRaisedDarkButton with Round Corners" BorderBrush="Black" Foreground="White" Background="#FF4C4C4C">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign1:PackIcon Kind="ArrowLeftTopBold" Foreground="White" />
-                            <materialDesign1:PackIcon Kind="SeatReclineExtra" Foreground="White" />
-                        </StackPanel>
-                    </Button>
-                    <TextBlock Text="Back Rest Back" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="11"/>
-                    <Button x:Name="seatBackRestBackBtn" PreviewMouseLeftButtonDown="seatBackRestBackBtn_PreviewMouseLeftButtonDown"  
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign1:PackIcon Kind="ArrowLeftTopBold" Foreground="White" />
+                                <materialDesign1:PackIcon Kind="SeatReclineExtra" Foreground="White" />
+                            </StackPanel>
+                        </Button>
+                        <TextBlock Text="Back Rest Back" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="11"/>
+                        <Button x:Name="seatBackRestBackBtn" PreviewMouseLeftButtonDown="seatBackRestBackBtn_PreviewMouseLeftButtonDown"  
                             PreviewMouseLeftButtonUp="seatBackRestBackBtn_PreviewMouseLeftButtonUp" 
                             Grid.Column="2" Grid.Row="1"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                             Style="{StaticResource MaterialDesignRaisedDarkButton}"
                             materialDesign1:ButtonAssist.CornerRadius="25 0 25 0"
                             ToolTip="MaterialDesignRaisedDarkButton with Round Corners" BorderBrush="Black" Foreground="White" Background="#FF4C4C4C">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign1:PackIcon Kind="ArrowRightTopBold" Foreground="White" />
-                            <materialDesign1:PackIcon Kind="SeatReclineExtra" Foreground="White" />
-                        </StackPanel>
-                    </Button>
-                    <TextBlock Text="Head Rest Up" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="11"/>
-                    <Button x:Name="seatHeadRestUp" PreviewMouseLeftButtonDown="seatHeadRestUp_PreviewMouseLeftButtonDown"  
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign1:PackIcon Kind="ArrowRightTopBold" Foreground="White" />
+                                <materialDesign1:PackIcon Kind="SeatReclineExtra" Foreground="White" />
+                            </StackPanel>
+                        </Button>
+                        <TextBlock Text="Head Rest Up" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="11"/>
+                        <Button x:Name="seatHeadRestUp" PreviewMouseLeftButtonDown="seatHeadRestUp_PreviewMouseLeftButtonDown"  
                             PreviewMouseLeftButtonUp="seatHeadRestUp_PreviewMouseLeftButtonUp" 
                             Grid.Column="3" Grid.Row="1"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                             Style="{StaticResource MaterialDesignRaisedDarkButton}"
                             materialDesign1:ButtonAssist.CornerRadius="25 0 25 0"
                             ToolTip="MaterialDesignRaisedDarkButton with Round Corners" BorderBrush="Black" Foreground="White" Background="#FF4C4C4C">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign1:PackIcon Kind="ArrowUpBold" Foreground="White" />
-                            <materialDesign1:PackIcon Kind="head" Foreground="White" />
-                        </StackPanel>
-                    </Button>
-                    <TextBlock Text="Head Rest Down" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="11"/>
-                    <Button x:Name="seatHeadRestDown" PreviewMouseLeftButtonDown="seatHeadRestDown_PreviewMouseLeftButtonDown"  
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign1:PackIcon Kind="ArrowUpBold" Foreground="White" />
+                                <materialDesign1:PackIcon Kind="head" Foreground="White" />
+                            </StackPanel>
+                        </Button>
+                        <TextBlock Text="Head Rest Down" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="11"/>
+                        <Button x:Name="seatHeadRestDown" PreviewMouseLeftButtonDown="seatHeadRestDown_PreviewMouseLeftButtonDown"  
                             PreviewMouseLeftButtonUp="seatHeadRestDown_PreviewMouseLeftButtonUp"  
                             Grid.Column="4" Grid.Row="1"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                             Style="{StaticResource MaterialDesignRaisedDarkButton}"
                             materialDesign1:ButtonAssist.CornerRadius="25 0 25 0"
                             ToolTip="MaterialDesignRaisedDarkButton with Round Corners" BorderBrush="Black" Foreground="White" Background="#FF4C4C4C">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign1:PackIcon Kind="ArrowDownBold" Foreground="White" />
-                            <materialDesign1:PackIcon Kind="head" Foreground="White" />
-                        </StackPanel>
-                    </Button>
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign1:PackIcon Kind="ArrowDownBold" Foreground="White" />
+                                <materialDesign1:PackIcon Kind="head" Foreground="White" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
                 </Grid>
-            </Grid>
-        </TabItem>
-    </TabControl>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
 </Window>
