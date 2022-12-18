@@ -650,6 +650,16 @@
                                 <materialDesign1:PackIcon Kind="head" Foreground="White" />
                             </StackPanel>
                         </Button>
+                        <Button x:Name="seatHeatBtn" Click="seatHeatBtn_Click"
+                            Grid.Column="1" Grid.Row="5"
+                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            materialDesign1:ButtonAssist.CornerRadius="0 25 0 25"
+                            ToolTip="MaterialDesignRaisedDarkButton with Round Corners" BorderBrush="Black" Foreground="White" Background="#FF4C4C4C">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign1:PackIcon x:Name="seatHeatBtnLogo"  Kind="CarSeatHeater" Foreground="White" />
+                            </StackPanel>
+                        </Button>
                     </Grid>
                 </Grid>
             </TabItem>

@@ -252,5 +252,20 @@ namespace Licenta_Concept
             Storyboard headRestDownStoryboard = (Storyboard)Resources["SeatHeadRestDownAnim"];
             headRestDownStoryboard.Stop();
         }
+
+        private void seatHeatBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (seatHeatBtnLogo.Foreground.ToString() == "#FFFFFFFF")
+            {
+                seatHeatBtnLogo.Foreground = new SolidColorBrush(Colors.DarkOrange);
+                seatBackRestImg.Source = new BitmapImage(new Uri(@"/seatHeatedBackRest.png", UriKind.Relative));
+                seatButtRestImg.Source= new BitmapImage(new Uri(@"/seatHeatedButtRest.png", UriKind.Relative));
+            }
+            else {
+                seatHeatBtnLogo.Foreground = new SolidColorBrush(Colors.White);
+                seatBackRestImg.Source = new BitmapImage(new Uri(@"/seatBackRest.png", UriKind.Relative));
+                seatButtRestImg.Source = new BitmapImage(new Uri(@"/seatButtRest.png", UriKind.Relative));
+            }
+        }
     }
 }

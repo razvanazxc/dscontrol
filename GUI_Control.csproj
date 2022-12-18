@@ -29,6 +29,8 @@
     <None Remove="seatBackRest.png" />
     <None Remove="seatButtRest.png" />
     <None Remove="seatHeadrest.png" />
+    <None Remove="seatHeatedBackRest.png" />
+    <None Remove="seatHeatedButtRest.png" />
     <None Remove="seat_two.png" />
     <None Remove="settings.png" />
     <None Remove="siglasiteupit.png" />
@@ -63,6 +65,8 @@
     <Resource Include="seatBackRest.png" />
     <Resource Include="seatButtRest.png" />
     <Resource Include="seatHeadrest.png" />
+    <Resource Include="seatHeatedBackRest.png" />
+    <Resource Include="seatHeatedButtRest.png" />
     <Resource Include="seat_two.png" />
     <Resource Include="settings.png" />
     <Resource Include="UpWinBtn.png" />
