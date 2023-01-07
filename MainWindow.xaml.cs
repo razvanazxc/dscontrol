@@ -27,7 +27,8 @@ namespace Licenta_Concept
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static Logger logger = LogManager.GetCurrentClassLogger();
+        public static Logger logger = LogManager.GetCurrentClassLogger();
+        AppDomain currentDomain = AppDomain.CurrentDomain;
         int flagSideMenu = 0;
         SettingWindow settingWindow;
         public MainWindow()
@@ -35,6 +36,7 @@ namespace Licenta_Concept
             InitializeComponent();
             Closing += MainWindow_Closing;
             InitializeStatusBar();
+            currentDomain.UnhandledException += new UnhandledExceptionEventHandler(programCrashedHandeler);
             logger.Info("Program started successfully");
         }
 
@@ -258,14 +260,20 @@ namespace Licenta_Concept
             if (seatHeatBtnLogo.Foreground.ToString() == "#FFFFFFFF")
             {
                 seatHeatBtnLogo.Foreground = new SolidColorBrush(Colors.DarkOrange);
-                seatBackRestImg.Source = new BitmapImage(new Uri(@"/seatHeatedBackRest.png", UriKind.Relative));
-                seatButtRestImg.Source= new BitmapImage(new Uri(@"/seatHeatedButtRest.png", UriKind.Relative));
+                seatBackRestImg.Source = GetBitmapImage(@"/seatHeatedBackRest.png");
+                seatButtRestImg.Source= GetBitmapImage(@"/seatHeatedButtRest.png");
             }
             else {
                 seatHeatBtnLogo.Foreground = new SolidColorBrush(Colors.White);
-                seatBackRestImg.Source = new BitmapImage(new Uri(@"/seatBackRest.png", UriKind.Relative));
-                seatButtRestImg.Source = new BitmapImage(new Uri(@"/seatButtRest.png", UriKind.Relative));
+                seatBackRestImg.Source = GetBitmapImage(@"/seatBackRest.png");
+                seatButtRestImg.Source = GetBitmapImage(@"/seatButtRest.png");
             }
+        }
+
+        static void programCrashedHandeler(object sender, UnhandledExceptionEventArgs args) {
+            Exception e = (Exception)args.ExceptionObject;
+            logger.Error("MyHandler caught : " + e.Message);
+            logger.Error("Runtime terminating: {0}", args.IsTerminating);
         }
     }
 }

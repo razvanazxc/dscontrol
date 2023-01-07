@@ -64,6 +64,7 @@ namespace GUI_Control
                 catch (Exception e)
                 {
                     infoStatusBar.Text = "Change settings or connect device...";
+                    MainWindow.logger.Info("Device is not connected!");
                 }
 
             }));
@@ -85,6 +86,7 @@ namespace GUI_Control
                 catch (Exception e)
                 {
                     infoStatusBar.Text = "Change settings or connect device...";
+                    MainWindow.logger.Info("Device is not connected!");
                 }
 
             }));

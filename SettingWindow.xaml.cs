@@ -64,6 +64,7 @@ namespace Licenta_Concept
                     throw new InvalidOperationException("Com port is not connected anymore");
             }
             catch (Exception e) {
+                MainWindow.logger.Info("Saved setting no longer apply or no settings.json file");
                 DynamicComPorts();
                 DynamicParity();
                 DynamicStopBits();
