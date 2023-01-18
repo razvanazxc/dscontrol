@@ -19,6 +19,7 @@ using NLog;
 using System.IO;
 using GUI_Control;
 using System.Text.Json;
+using System.Configuration;
 
 namespace Licenta_Concept
 {
@@ -30,6 +31,7 @@ namespace Licenta_Concept
         public static Logger logger = LogManager.GetCurrentClassLogger();
         AppDomain currentDomain = AppDomain.CurrentDomain;
         int flagSideMenu = 0;
+        static UsbConnectionStatus usbStat;
         SettingWindow settingWindow;
         public MainWindow()
         {
@@ -42,12 +44,12 @@ namespace Licenta_Concept
 
         private void InitializeStatusBar()
         {
-            UsbConnectionStatus usbStat = new UsbConnectionStatus(infoStatusBar, this.Dispatcher);
+            usbStat = new UsbConnectionStatus(infoStatusBar, this.Dispatcher);
             usbStat.serialPortListener();
             usbStat.InitialDeviceCheck();
         }
 
-        private void settingsButton_Click(object sender, RoutedEventArgs e)
+        private async void settingsButton_Click(object sender, RoutedEventArgs e)
         {
             if(settingWindow!=null)
                 settingWindow.Close();
@@ -55,6 +57,11 @@ namespace Licenta_Concept
                 return;
             settingWindow = new SettingWindow();
             settingWindow.Show();
+            settingWindow.chechCommStatusOnExit += settings_chechCommStatusOnExit;
+        }
+
+        static void settings_chechCommStatusOnExit(object sender, EventArgs e) {
+            usbStat.InitialDeviceCheck();
         }
 
         private async void buttonDoor_Click(object sender, RoutedEventArgs e)

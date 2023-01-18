@@ -34,6 +34,7 @@ namespace Licenta_Concept
     public partial class SettingWindow : Window
     {
         SerialPort _serialPort;
+        public event EventHandler chechCommStatusOnExit;
         private bool closeStoryBoardCompleted = false;
         public SettingWindow()
         {
@@ -140,6 +141,7 @@ namespace Licenta_Concept
             {
                 MainWindow.logger.Error(t);
             }
+                OnchechCommStatusOnExit(null);
                 Close();
         }
 
@@ -150,5 +152,9 @@ namespace Licenta_Concept
             await Task.Delay(1000);
             this.Close();
         }
-    }
+
+        protected virtual void OnchechCommStatusOnExit(EventArgs e) {
+            chechCommStatusOnExit?.Invoke(this, e);
+        }
+        }
 }
