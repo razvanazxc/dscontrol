@@ -46,7 +46,7 @@ namespace Licenta_Concept
         void DynamicDefaultOrSavedSettings()
         {
             //reding settings first to see if a device is on that com port
-            string jsonFile = "settings.json";
+            string jsonFile = Directory.GetCurrentDirectory() + @"\settings.json";
             try
             {
                 string jsonString = File.ReadAllText(jsonFile);
@@ -130,9 +130,16 @@ namespace Licenta_Concept
                 StopBits= (int)Enum.Parse(typeof(StopBits), stopBitsPicked.SelectedItem.ToString())
             };
             //write json settings file
-                string jsonFile = "settings.json";
+                string jsonFile = Directory.GetCurrentDirectory()+@"\settings.json";
                 string source = JsonSerializer.Serialize(currentSettings, new JsonSerializerOptions { WriteIndented = true });
+            try
+            {
                 File.WriteAllText(jsonFile, source);
+            }
+            catch (Exception t) 
+            {
+                MainWindow.logger.Error(t);
+            }
                 Close();
         }
 
