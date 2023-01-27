@@ -11,6 +11,9 @@ using System.Windows.Controls;
 using System.Windows.Threading;
 using System.Text.Json;
 using System.IO;
+using System.Security.RightsManagement;
+using System.Collections;
+using System.Windows;
 
 namespace GUI_Control
 {
@@ -25,7 +28,8 @@ namespace GUI_Control
             this.mainUiDispatcher = mainUiDispatcher;
         }
 
-        public void serialPortListener() {
+        public void serialPortListener()
+        {
             /*
                 EventType's for Win32_DeviceChangeEvent class are:
                 Configuration Changed (1)
@@ -45,7 +49,8 @@ namespace GUI_Control
             watcherDeviceDisconnected.Query = queryDeviceDisconnected;
             watcherDeviceDisconnected.Start();
         }
-        void watcherNewDevice_EventArrived(object sender, EventArrivedEventArgs e) {
+        void watcherNewDevice_EventArrived(object sender, EventArrivedEventArgs e)
+        {
             mainUiDispatcher.Invoke((Action)(() =>
             {
                 //is settings file com port open?
@@ -56,7 +61,7 @@ namespace GUI_Control
                     Settings currentSettings = JsonSerializer.Deserialize<Settings>(jsonString);
                     if (TestSerialComunnication(currentSettings.ComPort, currentSettings.BaudRate, currentSettings.Parity, currentSettings.DataBits, currentSettings.StopBits))
                     {
-                        infoStatusBar.Text = "Comm "+ currentSettings.ComPort+" connected!";
+                        infoStatusBar.Text = "Comm " + currentSettings.ComPort + " connected!";
                     }
                     else
                         throw new InvalidOperationException("Com port is not connected anymore");
@@ -92,7 +97,8 @@ namespace GUI_Control
             }));
         }
 
-        public void InitialDeviceCheck() {
+        public void InitialDeviceCheck()
+        {
             watcherNewDevice_EventArrived(null, null);
         }
 
@@ -109,6 +115,25 @@ namespace GUI_Control
             catch (IOException e)
             {
                 return false;
+            }
+        }
+
+        public void sendSerialMessage(byte message)
+        {
+            byte[] messageByteArray = new byte[]{ message };
+            string jsonFile = "settings.json";
+            try
+            {
+                string jsonString = File.ReadAllText(jsonFile);
+                Settings currentSettings = JsonSerializer.Deserialize<Settings>(jsonString);
+                SerialPort _serialPort = new SerialPort(currentSettings.ComPort, currentSettings.BaudRate, (Parity)currentSettings.Parity, currentSettings.DataBits, (StopBits)currentSettings.StopBits);
+                _serialPort.Open();
+                _serialPort.Write(messageByteArray,0,1);
+                _serialPort.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Mesajul a esuat");
             }
         }
     }

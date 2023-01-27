@@ -166,24 +166,28 @@ namespace Licenta_Concept
 
         private void positionForwardBtn_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            usbStat.sendSerialMessage(0x30);
             Storyboard seatForwardStoryBoard = (Storyboard)Resources["SeatPositionForwardAnim"];
             seatForwardStoryBoard.Begin();
         }
 
         private void positionForwardBtn_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            usbStat.sendSerialMessage(0x10);
             Storyboard seatForwardStoryBoard = (Storyboard)Resources["SeatPositionForwardAnim"];
             seatForwardStoryBoard.Stop();
         }
 
         private void positionBackwardBtn_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            usbStat.sendSerialMessage(0x31);
             Storyboard seatBackwardStoryBoard = (Storyboard)Resources["SeatPositionBackwardAnim"];
             seatBackwardStoryBoard.Begin();
         }
 
         private void positionBackwardBtn_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            usbStat.sendSerialMessage(0x10);
             Storyboard seatBackwardStoryBoard = (Storyboard)Resources["SeatPositionBackwardAnim"];
             seatBackwardStoryBoard.Stop();
         }
