@@ -52,23 +52,22 @@ namespace Licenta_Concept
             {
                 string jsonString = File.ReadAllText(jsonFile);
                 Settings currentSettings = JsonSerializer.Deserialize<Settings>(jsonString);
+                DynamicComPorts();
+                DynamicParity();
+                DynamicStopBits();
                 if (TestSerialComunnication(currentSettings.ComPort, currentSettings.BaudRate, currentSettings.Parity, currentSettings.DataBits, currentSettings.StopBits))
                 {
-                    comPortSelector.Items.Add(new TextBox().Text = currentSettings.ComPort);
+                    comPortSelector.SelectedItem = new TextBox().Text = currentSettings.ComPort;
                     baudRatePicked.Text = currentSettings.BaudRate.ToString();
-                    parityPicked.Items.Add(new TextBox().Text = Enum.GetName(typeof(Parity), currentSettings.Parity));
+                    parityPicked.SelectedItem = new TextBox().Text = Enum.GetName(typeof(Parity), currentSettings.Parity);
                     dataBitsPicked.Text = currentSettings.DataBits.ToString();
-                    stopBitsPicked.Items.Add(new TextBox().Text = Enum.GetName(typeof(StopBits), currentSettings.StopBits));
-                    stopBitsPicked.SelectedIndex = 0;
+                    stopBitsPicked.SelectedItem = new TextBox().Text = Enum.GetName(typeof(StopBits), currentSettings.StopBits);
                 }
                 else
                     throw new InvalidOperationException("Com port is not connected anymore");
             }
             catch (Exception e) {
                 MainWindow.logger.Info("Saved setting no longer apply or no settings.json file");
-                DynamicComPorts();
-                DynamicParity();
-                DynamicStopBits();
             }
         }
 
