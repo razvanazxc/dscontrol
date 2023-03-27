@@ -106,6 +106,7 @@ namespace Licenta_Concept
 
         private void doorWindowUp_Click(object sender, RoutedEventArgs e)
         {
+            usbStat.sendSerialMessage(0x31);
             winButtonsImg.Source = GetBitmapImage("/UpWinBtn.png");
             Storyboard winUpStoryBoard = (Storyboard)Resources["WindowUpAnim"];
             winUpStoryBoard.Begin();
@@ -113,6 +114,7 @@ namespace Licenta_Concept
 
         private void doorWindowUp_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            usbStat.sendSerialMessage(0x21);
             winButtonsImg.Source = GetBitmapImage("/IdleWinBtn.png");
             Storyboard winUpStoryBoard = (Storyboard)Resources["WindowUpAnim"];
             winUpStoryBoard.Stop();
@@ -133,6 +135,7 @@ namespace Licenta_Concept
 
         private void doorWindowDown_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            usbStat.sendSerialMessage(0x32);
             winButtonsImg.Source = GetBitmapImage("/DownWinBtn.png");
             Storyboard winDownStoryBoard = (Storyboard)Resources["WindowDownAnim"];
             winDownStoryBoard.Begin();
@@ -140,6 +143,7 @@ namespace Licenta_Concept
 
         private void doorWindowDown_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            usbStat.sendSerialMessage(0x22);
             winButtonsImg.Source = GetBitmapImage("/IdleWinBtn.png");
             Storyboard winDownStoryBoard = (Storyboard)Resources["WindowDownAnim"];
             winDownStoryBoard.Stop();
@@ -166,58 +170,63 @@ namespace Licenta_Concept
 
         private void positionForwardBtn_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            usbStat.sendSerialMessage(0x30);
+            usbStat.sendSerialMessage(0x41);
             Storyboard seatForwardStoryBoard = (Storyboard)Resources["SeatPositionForwardAnim"];
             seatForwardStoryBoard.Begin();
         }
 
         private void positionForwardBtn_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            usbStat.sendSerialMessage(0x10);
+            usbStat.sendSerialMessage(0x11);
             Storyboard seatForwardStoryBoard = (Storyboard)Resources["SeatPositionForwardAnim"];
             seatForwardStoryBoard.Stop();
         }
 
         private void positionBackwardBtn_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            usbStat.sendSerialMessage(0x31);
+            usbStat.sendSerialMessage(0x42);
             Storyboard seatBackwardStoryBoard = (Storyboard)Resources["SeatPositionBackwardAnim"];
             seatBackwardStoryBoard.Begin();
         }
 
         private void positionBackwardBtn_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            usbStat.sendSerialMessage(0x10);
+            usbStat.sendSerialMessage(0x12);
             Storyboard seatBackwardStoryBoard = (Storyboard)Resources["SeatPositionBackwardAnim"];
             seatBackwardStoryBoard.Stop();
         }
 
         private void seatUpBtn_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            usbStat.sendSerialMessage(0x43);
             Storyboard seatUpStoryboard = (Storyboard)Resources["SeatHeightUpAnim"];
             seatUpStoryboard.Begin();
         }
 
         private void seatUpBtn_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            usbStat.sendSerialMessage(0x13);
             Storyboard seatUpStoryboard = (Storyboard)Resources["SeatHeightUpAnim"];
             seatUpStoryboard.Stop();
         }
 
         private void seatDownBtn_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            usbStat.sendSerialMessage(0x44);
             Storyboard seatDownStoryboard = (Storyboard)Resources["SeatHeightDownAnim"];
             seatDownStoryboard.Begin();
         }
 
         private void seatDownBtn_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            usbStat.sendSerialMessage(0x14);
             Storyboard seatDownStoryboard = (Storyboard)Resources["SeatHeightDownAnim"];
             seatDownStoryboard.Stop();
         }
 
         private void seatBackRestForwardBtn_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            usbStat.sendSerialMessage(0x45);
             Storyboard backRestForwardStoryboard = (Storyboard)Resources["SeatBackreastForwardAnim"];
             backRestForwardStoryboard.Begin();
 
@@ -225,36 +234,42 @@ namespace Licenta_Concept
 
         private void seatBackRestForwardBtn_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            usbStat.sendSerialMessage(0x15);
             Storyboard backRestForwardStoryboard = (Storyboard)Resources["SeatBackreastForwardAnim"];
             backRestForwardStoryboard.Stop();
         }
 
         private void seatBackRestBackBtn_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            usbStat.sendSerialMessage(0x46);
             Storyboard backRestBackStoryboard = (Storyboard)Resources["SeatBackreastBackwardAnim"];
             backRestBackStoryboard.Begin();
         }
 
         private void seatBackRestBackBtn_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            usbStat.sendSerialMessage(0x16);
             Storyboard backRestBackStoryboard = (Storyboard)Resources["SeatBackreastBackwardAnim"];
             backRestBackStoryboard.Stop();
         }
 
         private void seatHeadRestUp_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            usbStat.sendSerialMessage(0x47);
             Storyboard headRestUpStoryboard = (Storyboard)Resources["SeatHeadRestUpAnim"];
             headRestUpStoryboard.Begin();
         }
 
         private void seatHeadRestUp_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            usbStat.sendSerialMessage(0x17);
             Storyboard headRestUpStoryboard = (Storyboard)Resources["SeatHeadRestUpAnim"];
             headRestUpStoryboard.Stop();
         }
 
         private void seatHeadRestDown_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            usbStat.sendSerialMessage(0x48);
             Storyboard headRestDownStoryboard = (Storyboard)Resources["SeatHeadRestDownAnim"];
             headRestDownStoryboard.Begin();
 
@@ -262,6 +277,7 @@ namespace Licenta_Concept
 
         private void seatHeadRestDown_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            usbStat.sendSerialMessage(0x18);
             Storyboard headRestDownStoryboard = (Storyboard)Resources["SeatHeadRestDownAnim"];
             headRestDownStoryboard.Stop();
         }
@@ -270,11 +286,13 @@ namespace Licenta_Concept
         {
             if (seatHeatBtnLogo.Foreground.ToString() == "#FFFFFFFF")
             {
+                usbStat.sendSerialMessage(0x49);
                 seatHeatBtnLogo.Foreground = new SolidColorBrush(Colors.DarkOrange);
                 seatBackRestImg.Source = GetBitmapImage(@"/seatHeatedBackRest.png");
                 seatButtRestImg.Source= GetBitmapImage(@"/seatHeatedButtRest.png");
             }
             else {
+                usbStat.sendSerialMessage(0x19);
                 seatHeatBtnLogo.Foreground = new SolidColorBrush(Colors.White);
                 seatBackRestImg.Source = GetBitmapImage(@"/seatBackRest.png");
                 seatButtRestImg.Source = GetBitmapImage(@"/seatButtRest.png");
